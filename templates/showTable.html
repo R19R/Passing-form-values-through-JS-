@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action='/showtable'>
+        <p>Name <input type="text" id='name'> </p>
+        <p>Comments <input type='text' id='comments'> </p>
+        <button type="submit" id="btn">Submit</button>
+    </form>
+
+    <table id="display" style="border: 2px solid black;">
+        <tr>
+            <th>Name</th>
+            <th>Comments</th>
+        </tr>
+    </table>
+
+    <script>
+        var btn = document.getElementById("btn").addEventListener("click", showTable);
+        var row = 1;
+
+        function showTable(e){
+            e.preventDefault();
+            var name = document.getElementById("name").value;
+            var comments = document.getElementById("comments").value;
+
+            
+
+            var table = document.getElementById("display");
+
+            var newRow = table.insertRow(row);
+
+            var cell1 = newRow.insertCell(0);
+            var cell2 = newRow.insertCell(1);
+
+            cell1.innerHTML = name;
+            cell2.innerHTML = comments;
+
+            row++;
+        };
+
+    </script>
+</body>
+</html>

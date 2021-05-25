@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <body>
+        <form action='/apijs'>
+            <p>Name <input type="text" id='name'> </p>
+            <p>Comments <input type='text' id='comments'> </p>
+            <button type="submit" id="btn">Submit</button>
+        </form>
+        <p><span id="na"></span> <br></p>
+        <p><span id="co"></span> <br></p>
+
+    <script>
+        document.getElementById("btn").addEventListener("click", getValue);
+
+        function getValue(e){
+            e.preventDefault();
+            var n = document.getElementById("name").value;
+            var c = document.getElementById('comments').value;    
+            //console.log("Hello");
+            //var displayName = document.getElementById("na").innerHTML= n;
+            //var displayComments = document.getElementById("co").innerHTML= c;
+            //console.log(JSON.parse(displayName,displayComments));          
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", '/apijs', true);
+            xhr.onload = function(response){
+                console.log(this.responseText);
+            };
+
+            xhr.send();
+
+        };
+  
+    </script>
+</body>
+</html>
